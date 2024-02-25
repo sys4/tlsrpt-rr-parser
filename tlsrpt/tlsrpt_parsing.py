@@ -50,7 +50,7 @@ version = Literal("v=TLSRPTv1").setResultsName("tlsrpt_version")
 record = version + field_delim + tlsrpt_field
 
 
-def parse(tlsrpt_record):
+def parse_silent(tlsrpt_record):
     """
     Will return None if there was a parsing error and a ParseResult object otherwise.
     """
