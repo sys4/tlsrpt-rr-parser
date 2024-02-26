@@ -33,6 +33,10 @@ def test_record_parse_with_extension():
 
 
 def test_parse_silent():
+    """
+    Check that parse_silent does not throw a ParseException but instead returns
+    None if the TLSRPT policy record is malformed.
+    """
     TXT_RECORD = "v=TLSRPTv1; rua=!!"   # broken TLSRPT
     parsed = tlsrpt_parsing.parse_silent(TXT_RECORD)
     assert parsed is None
