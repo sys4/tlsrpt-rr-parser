@@ -1,6 +1,6 @@
 import pytest
 
-from tlsrpt import tlsrpt_parsing
+from tlsrpt_policy import tlsrpt_parsing
 
 
 def test_record_parse_simple_mailto():

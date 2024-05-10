@@ -1,18 +1,43 @@
-[tool.poetry]
-name = "tlsrpt"
-version = "0.0.1"
-description = "SMTP TLS Reporting support library for Python"
-authors = ["Uwe Kamper <uk@sys4.de>"]
-license = "Apache-2.0"
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.9"
-pyparsing = "^3.1.1"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.0.2"
-
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tlsrpt_policy"
+version = "1.0.0"
+authors = [
+  { name="sys4 AG", email="info@sys4.de" },
+  { name="Uwe Kamper", email="uk@sys4.de"},
+]
+description = "Utilities for parsing SMTP TLS reporting (TLSRPT) policies"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "pyparsing",
+  "dnspython",
+]
+
+[project.optional-dependencies]
+test = [
+  "tox",
+  "pytest",
+  "pytest-cov",
+]
+lint = [
+  "flake8",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/sys4/tlsrpt-rr-parser"
+"Bug Tracker" = "https://github.com/sys4/tlsrpt-rr-parser/issues"
+
+# [project.scripts]
+# search = "tlsrpt_policy.cli:app"
+
+[tool.hatch.build]
+only-packages = true
